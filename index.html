@@ -1,128 +1,59 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<title>Portfolio</title>
-
-	<link rel="icon" href="ico.png" type="image/png" sizes="16x16">
-	<!--Bootstrap CSS-->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-	<!----------------------------------------------------------------------------------------------------------------------------->
-	<style>
-		
-/*svg:hover {
-
-}*/
-
-		#myBtn {
-			display: none;
-			position: fixed;
-			bottom: 20px;
-			right: 30px;
-			z-index: 99;
-			font-size: 18px;
-			border: none;
-			outline: none;
-			background-color: DodgerBlue;
-			/*color: white;*/
-			cursor: pointer;
-			padding: 15px;
-			border-radius: 4px;
-		}
-
-		#myBtn:hover {
-			background-color: rgb(60, 60, 250);
-			filter: drop-shadow( .5rem .5rem 1rem #4444dd) ;
-		}
-
-		button[id^='competence']:hover {
-  			/*background: blue;*/
-			filter: drop-shadow(  0 0 0.75rem  #b3b3f5);
-		  
-		}
-
-		svg[id^='icones']:hover {
-			/*filter: drop-shadow( .5rem .5rem 0.2rem #b3b3f5) ;*/
-			filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4)) ;
-  			/*text-shadow: 0 10px 40px 0 #ff6600;
-			background-color: #ff0000fb;*/
-			padding-top: 2px;
-    		padding-bottom: 2px;
-		
-		}
-
-		svg[id^='iconef']:hover {
-			filter: drop-shadow( 0 -1mm 7mm #b3b3f5) ;
-  			/*text-shadow: 0 10px 40px 0 #ff6600;
-			background-color: #ff0000fb;*/
-			padding-top: 2px;
-    		padding-bottom: 2px;
-		
-		}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-	</style>
-	<!----------------------------------------------------------------------------------------------------------------------------->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>My Book</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+
+        <!----------------------------------------------------------------------------------------------------------------------------->
+	    <style>
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: DodgerBlue;
+            /*color: white;*/
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+    
+        #myBtn:hover {
+            background-color: #118dff;
+            filter: drop-shadow( .5rem .5rem 1rem #118dff) ;
+        }
+    
+        </style>
+    
+        <!----------------------------------------------------------------------------------------------------------------------------->
+
+        	<!----------------------------------------------------------------------------------------------------------------------------->
 	<style>
 		@import url(fonts.googleapis.com/css?family=Lato:300:400);
 
-		body {
-			margin: 0;
-		}
 
-		h1 {
-			font-family: 'Lato', sans-serif;
-			font-weight: 300;
-			letter-spacing: 2px;
-			font-size: 48px;
-		}
 
-		h2 {
-			font-family: 'Lato', sans-serif;
-			font-weight: 300;
-			letter-spacing: 2px;
-			font-size: 48px;
-		}
-
-		p {
-			font-family: 'Lato', sans-serif;
-			letter-spacing: 1px;
-			font-size: 14px;
-			color: #333333;
-		}
-
-		/*#i-am-lazy {
-	  		display: none;
-			}
-	
-			#i-am-lazy-2 {
-			  display: none;
-			}*/
-
-		.header {
-			position: relative;
-			text-align: center;
-			background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
-			color: white;
-		}
-
-		.logo {
-			width: 50px;
-			fill: white;
-			padding-right: 15px;
-			display: inline-block;
-			vertical-align: middle;
-		}
-
-		.inner-header {
-			height: 275px;
-			/*height:25vh;*/
-			width: 100%;
-			margin: 0;
-			padding: 0;
-		}
 
 		.flex {
 			/*Flexbox for containers*/
@@ -142,12 +73,7 @@
 			max-height: 150px;
 		}
 
-		.content {
-			position: relative;
-			height: 20vh;
-			text-align: center;
-			background-color: white;
-		}
+
 
 		/* Animation */
 
@@ -185,611 +111,556 @@
 			}
 		}
 
-		/*Shrinking for mobile*/
-		@media (max-width: 768px) {
-			.wasf {
-				height: 40px;
-				min-height: 40px;
-			}
-
-			.content {
-				height: 30vh;
-			}
-
-			h1 {
-				font-size: 24px;
-			}
-		}
-
-		@media (max-width: 400px) {
-			#randomize-id {
-				display: none;
-			}
-		}
 	</style>
 
-
-
-
-
-
-
-
-
-
-
+    
 
 </head>
-
 <body>
-	<div class="header">
-
-		<!--Content before wasf-->
-		<div class="inner-header flex">
-			<!--Just the logo.. Don't mind this-->
-			<!--
-			<svg version="1.1" class="logo" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-				xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" xml:space="preserve">
-				<path fill="#FFFFFF" stroke="#000000" stroke-width="10" stroke-miterlimit="10" d="M57,283" />
-				<g>
-					<path fill="#fff"
-						d="M250.4,0.8C112.7,0.8,1,112.4,1,250.2c0,137.7,111.7,249.4,249.4,249.4c137.7,0,249.4-111.7,249.4-249.4
-						C499.8,112.4,388.1,0.8,250.4,0.8z M383.8,326.3c-62,0-101.4-14.1-117.6-46.3c-17.1-34.1-2.3-75.4,13.2-104.1
-						c-22.4,3-38.4,9.2-47.8,18.3c-11.2,10.9-13.6,26.7-16.3,45c-3.1,20.8-6.6,44.4-25.3,62.4c-19.8,19.1-51.6,26.9-100.2,24.6l1.8-39.7    c35.9,1.6,59.7-2.9,70.8-13.6c8.9-8.6,11.1-22.9,13.5-39.6c6.3-42,14.8-99.4,141.4-99.4h41L333,166c-12.6,16-45.4,68.2-31.2,96.2  c9.2,18.3,41.5,25.6,91.2,24.2l1.1,39.8C390.5,326.2,387.1,326.3,383.8,326.3z" />
-				</g>
-			</svg>
-			<h1>My portfolio <i class="fa fa-bank" aria-hidden="true"></i></h1>
-			-->
-
-		</div>
-		<div>
-			<div class="text-center">
-				<img src="profile.png" width="200" height="200" style="margin-top:-100px;
-	
-				background-size : contain;
-				background-position : 50% 50%;
-				display : inline-block;
-				
-				-moz-border-radius : 100px;
-				-webkit-border-radius : 100px;
-				border-radius : 100px;		
-				border: 4px solid #555;
-				">
-			</div>
-			<div class="text-center">
-				<h1 class="display-4">Ahmed Jedidi</h1>
-				<h3> Software Developer & Web Developer </h3><br>
-				<!--Developpement des Systemes d'information-->
-			</div>
-
-		</div>
-
-
-		<!--wasf Container-->
-		<div>
-			<svg class="wasf" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-				viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-				<defs>
-					<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
-					</path>
-				</defs>
-				<g class="parallax">
-					<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7"></use>
-					<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"></use>
-					<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"></use>
-					<use xlink:href="#gentle-wave" x="48" y="7" fill="#fff"></use>
-				</g>
-			</svg>
-		</div>
-		<!--wasf end-->
-
-
-
-	</div>
-
-
-
-
-	<!---------------------------------------------------------------------TOP----------------------------------------------------------------------------->
-	<button class="btn-success shadow" onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-
-
-
-	<!----------------------------------------------------------------------Old View without animation----------------------------------------------------------------------------->
-	<!--<div class="bg-secondary" style="height:200px"></div>-->
-
-
-
-	<!----------------------------------------------------------------------Icons , Links & About----------------------------------------------------------------------------->
-				<!--------------------------------------------------------------------------------------------------------------------------------------------------->
-				<!--------------------------------------------------------------------------------------------------------------------------------------------------->
-	<div class="text-center mt-4">
-		<!----------------------------------------------------------------------Social Icons----------------------------------------------------------------------------->
-		<div class="text-center">
-			<!--social icons-->
-			<div class="container">
-				<div class="row">
-					<div class="col p-0" >
-	
-						<a target="_blank" href="https://github.com/Ahmed-Jedidi">
-							<svg id="icones" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#00000"
-								class="mx-2 bi bi-github" viewBox="0 0 16 16">
-								<path
-									d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-							</svg></a>
-						&ensp;
-						<a target="_blank" href="https://www.facebook.com/ahmed.jdidi.1029">
-							<svg id="iconef" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#0d6efd"
-								class="mx-2 bi bi-facebook" viewBox="0 0 16 16">
-								<path fill-rule="evenodd"
-									d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-							</svg></a>
-						&ensp;
-						<a target="_blank"
-							href="https://www.canva.com/design/DAEz0OdG8Uc/GhrS_GWBRfaNOA05o_Abaw/view?utm_content=DAEz0OdG8Uc&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton">
-							<svg id="icones" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#00000"
-								class="mx-2 bi bi-patch-check" viewBox="0 0 16 16">
-								<path fill-rule="evenodd"
-									d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-								<path
-									d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-								<path
-									d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
-							</svg>
-						</a>
-					</div>
-				</div>
-			</div>
-			<br>
-			<!----------------------------------------------------------------------Competence Link----------------------------------------------------------------------------->
-			<a target="_blank" href="https://drive.google.com/drive/folders/1F4GC5qWjc6005n-TEF4tNLKWTJ02PQ0I?usp=sharing">
-				<button type="button" class="btn btn-primary shadow mt-2 px-5 fs-4" style="font-family: 'Lato', sans-serif;" id="competence">
-					Competences
-				</button>
-			</a>
-		</div>
-		<br><br>
-	
-		<!----------------------------------------------------------------------About me----------------------------------------------------------------------------->
-		<h2 class="p-2 display-5">About me</h2>
-		<div class="container w-50 p-3">
-	
-			<p class="text-secondary fs-5">
-	
-				A student of Computer Science at the Higher Institute of Technological Studies of Nabeul.
-				<br><br> Who is passionate about developing IT & new techology.
-				Have an active social life associated with various clubs.
-				<!--Actually, I 'm familiar with programming and am integrated in the social life & various clubs.-->
-				<!--and have a social experience with clubs. -->
-				Also skilled at Video Editing & Design.
-				<br><br>I am 21 years old & am really curious to learn more.
-			</p>
-			<!------------------------------------------------------------>
-			<hr>
-			<!------------------------------------------------------------>		
-		</div>
-	</div>
-
-
-
-			
-	<!----------------------------------------------------------------------Hard Skills----------------------------------------------------------------------------->
-			<!--------------------------------------------------------------------------------------------------------------------------------------------------->
-			<!--------------------------------------------------------------------------------------------------------------------------------------------------->
-
-	<div class="text-center bg-light p-2">
-		<h1 class="p-2 display-4">Hard Skills</h1>
-		<div class="container w-50" style="text-align:-webkit-center;">
-			<div class="row m-3">
-				<div class="col-lg mb-2">
-					<span class="badge shadow bg-danger w-75 h-100 p-3 fs-5">PYTHON</span>
-	
-				</div>
-				<div class="col-lg mb-2">
-	
-					<span class="badge shadow bg-warning w-75 h-100 p-3 fs-5">HTML5</span>
-				</div>
-				<div class="col-lg mb-2">
-	
-					<span class="badge shadow bg-primary w-75 h-100 p-3 fs-5">CSS3</span>
-				</div>
-			</div>
-	
-			<div class="row m-3">
-				<div class="col-lg mb-2">
-					<span class="badge shadow bg-danger w-75 h-100 p-3 fs-5">C / C++</span>
-	
-				</div>
-				<div class="col-lg mb-2">
-	
-					<span class="badge shadow bg-warning w-75 h-100 p-3 fs-5">Angular</span>
-				</div>
-				<div class="col-lg mb-2">
-	
-					<span class="badge shadow bg-primary w-75 h-100 p-3 fs-5">BOOTSTRAP</span>
-				</div>
-			</div>
-	
-			<div class="row m-3">
-				<div class="col-lg mb-2">
-					<span class="badge shadow bg-danger w-75 h-100 p-3 fs-5">JAVA</span>
-	
-				</div>
-				<div class="col-lg mb-2">
-	
-					<span class="badge shadow bg-warning w-75 h-100 p-3 fs-5">JAVASCRIPT</span>
-				</div>
-				<div class="col-lg mb-2">
-	
-					<span class="badge shadow bg-primary w-75 h-100 p-3 fs-5">SASS</span>
-				</div>
-			</div>
-	
-	
-		</div>
-	
-	</div>
-	
-	<!------------------------------------------------------------->	
-	<hr>
-	<!------------------------------------------------------------->
-
-	<!----------------------------------------------------------------------Soft Skills----------------------------------------------------------------------------->
-			<!--------------------------------------------------------------------------------------------------------------------------------------------------->
-			<!--------------------------------------------------------------------------------------------------------------------------------------------------->
-	<div class="text-center bg-light p-2">
-		<h1 class="p-2 display-4">Soft Skills</h1>
-		<div class="container w-50" style="text-align:-webkit-center;">
-			<div class="row m-3">
-				<div class="col-lg mb-2">
-					<span class="badge shadow bg-danger w-75 h-100 p-3 fs-5">Teamwork</span>
-	
-				</div>
-				<div class="col-lg mb-2">
-	
-					<span class="badge shadow bg-warning w-75 h-100 p-3 fs-5">Manage Time</span>
-				</div>
-				<div class="col-lg mb-2">
-	
-					<span class="badge shadow bg-primary w-75 h-100 p-3 fs-5">Creativity</span>
-				</div>
-			</div>
-	
-			<div class="row m-3">
-				<div class="col-lg mb-2">
-					<span class="badge shadow bg-danger w-75 h-100 p-3 fs-5">Leadership</span>
-	
-				</div>
-				<div class="col-lg mb-2">
-	
-					<span class="badge shadow bg-warning w-75 h-100 p-3 fs-5">Ponctual</span>
-				</div>
-				<div class="col-lg mb-2">
-	
-					<span class="badge shadow bg-primary w-75 h-100 p-3 fs-5">Adaptability</span>
-				</div>
-			</div>
-	
-			<div class="row m-3">
-				<div class="col-lg mb-2">
-					<span class="badge shadow bg-danger w-75 h-100 p-3 fs-5">Communication</span>
-	
-				</div>
-				<div class="col-lg mb-2">
-	
-					<span class="badge shadow bg-warning w-75 h-100 p-3 fs-5">Friendly</span>
-				</div>
-				<div class="col-lg mb-2">
-	
-					<span class="badge shadow bg-primary w-75 h-100 p-3 fs-5">Collaboration</span>
-				</div>
-			</div>
-	
-	
-		</div>
-	
-	</div>
-
-	<!----------------------------------------------------------------------Soft Skills----------------------------------------------------------------------------->
-			<!--------------------------------------------------------------------------------------------------------------------------------------------------->
-			<!--------------------------------------------------------------------------------------------------------------------------------------------------->
-
-	<div class="container bg-light w-50" style="text-align:-webkit-center;">
-		<!------------------------------------------------------------>
-		<hr>
-		<!------------------------------------------------------------>
-		<br>
-		<div class="row ">
-			<center>
-				<div class="col-lg-4 ">
-
-
-					<h1 class="p-2 display-4">Clubs</h1>
-
-				</div><!-- /.col-lg-4 -->
-			</center>
-		</div><!-- /.row -->
-		<!------------------------------------------------------------><br><br>
-		<!------------------------------------------------------------>
-		<div class="row">
-			<center>
-				<div class="col-lg-4">
-
-					<img class="img-fluid" src="tu.png" alt="Tunivisions">
-					<!--<h2>Tunivisions</h2>-->
-					<p>Member of Tunivisions Club ISETN on mandat 2021/2020</p>
-
-					<!--<svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-		<title>Tunivisions</title>-->
-					<!--<rect width="100%" height="100%" fill="#777"/>
-		<text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>-->
-
-					</svg>
-				</div><!-- /.col-lg-4 -->
-			</center>
-		</div><!-- /.row -->
-		<!------------------------------------------------------------><br><br>
-		<!-- Three columns of text below the carousel -->
-		<div class="row">
-			<div class="col-lg-4">
-
-				<br><br>
-				<img class="img-fluid" src="o.png" alt="Orange">
-				<br><br>
-				<h2>Orange</h2>
-				<p>Active member of Orange Tech Club ISETN</p>
-
-				<svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-					xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-					preserveAspectRatio="xMidYMid slice" focusable="false">
-					<title>Orange</title>
-					<!--<rect width="100%" height="100%" fill="#777"/>-->
-					<!--<text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>-->
-
-				</svg>
-			</div><!-- /.col-lg-4 -->
-
-			<div class="col-lg-4">
-				<br><br><br><br>
-				<img class="img-fluid" src="i.png" alt="IEEE">
-				<br><br><br>
-				<h2>IEEE</h2>
-				<p>Active member of IEEE ISETN Student Branch Since 2020</p>
-
-
-				<svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-					xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-					preserveAspectRatio="xMidYMid slice" focusable="false">
-					<title>IEEE</title>
-					<!--<rect width="100%" height="100%" fill="#777"/>
-		<text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>-->
-
-				</svg>
-			</div><!-- /.col-lg-4 -->
-
-			<div class="col-lg-4">
-
-				<br><br>
-				<img class="img-fluid" src="c.png" alt="CybeRobot">
-				<br>
-				<h2>CypeRobot</h2>
-
-				<p>Active member of Club CyberRobot ISETN</p>
-
-
-				<svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-					xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-					preserveAspectRatio="xMidYMid slice" focusable="false">
-					<title>CybeRobot</title>
-					<!--<rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>-->
-
-				</svg>
-			</div><!-- /.col-lg-4 -->
-
-
-
-
-		</div><!-- /.row -->
-
-
-
-		<!-- START THE FEATURETTES -->
-		<!------------------------------------------------------------>
-		<hr class="featurette-divider">
-		<!------------------------------------------------------------>
-	</div>
-
-
-
-
-	<div class="container text-center pt-4 mt-4">
-		<h1 class="p-3 display-3">Spoken Languages</h1><br>
-		<center>
-			<div class="row mt-3">
-				<div class="col-lg-4 col-sm-6 mb-4  ">
-					<div class="card" style="width: 16rem;">
-						<img src="SSS.png" class="card-img-top" alt="French">
-						<div class="card-body bg-light">
-							<h5 class="card-title">French</h5>
-							<div class="progress">
-								<div class="progress-bar bg-info" role="progressbar" style="width: 67%"
-									aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<p class="card-text">Second language</p>
-
-
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 mb-4 ">
-					<div class="card" style="width: 16rem;">
-						<img src="SS.png" class="card-img-top" alt="Arab">
-						<div class="card-body bg-light">
-							<h5 class="card-title">Arab</h5>
-							<div class="progress">
-								<div class="progress-bar bg-info" role="progressbar" style="width: 80%"
-									aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<p class="card-text">Native language</p>
-
-
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 mb-4 ">
-					<div class="card" style="width: 16rem;">
-						<img src="S.png" class="card-img-top" alt="English">
-						<div class="card-body bg-light">
-							<h5 class="card-title">English</h5>
-							<div class="progress">
-								<div class="progress-bar bg-info" role="progressbar" style="width: 70%"
-									aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<p class="card-text">Third language</p>
-
-
-						</div>
-					</div>
-				</div>
-				<!--<div class="col-lg-4 col-sm-6 mb-4 ">
-					<div class="card" style="width: 16rem;">
-						<img src="proj.png" class="card-img-top" alt="...">
-						<div class="card-body bg-light">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<button type="button" class="btn btn-secondary text-light">View Demo</button>
-							
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 mb-4 ">
-					<div class="card" style="width: 16rem;">
-						<img src="proj.png" class="card-img-top" alt="...">
-						<div class="card-body bg-light">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<button type="button" class="btn btn-secondary text-light">View Demo</button>
-							
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 mb-4 ">
-					<div class="card" style="width: 16rem;">
-						<img src="proj.png" class="card-img-top" alt="...">
-						<div class="card-body bg-light">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<button type="button" class="btn btn-secondary text-light">View Demo</button>-->
-
-			</div>
-		</center><br>
-
-		<!------------------------------------------------------------>
-		<hr class="featurette-divider">
-		<!------------------------------------------------------------>
-
-	</div>
-	</div>
-	</div>
-	</div>
-
-
-	<div class="container text-center pt-4 mt-4">
-		<h1 class="p-3 display-3">Passion & Hobbies</h1><br>
-		<center>
-			<div class="row mt-3">
-
-				<div class="col-lg-4 col-sm-6 mb-4  ">
-					<div class="card" style="width: 16rem;">
-						<img src="B.png" class="card-img-top" alt="Reading">
-						<div class="card-body bg-light">
-							<h5 class="card-title">Reading</h5>
-							<p class="card-text">The world is a book and those who do not travel read only one page.</p>
-
-
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-sm-6 mb-4 ">
-					<div class="card" style="width: 16rem;">
-						<img src="D.png" class="card-img-top" alt="Graphic Design">
-						<div class="card-body bg-light">
-							<h5 class="card-title">Graphic Design</h5>
-							<p class="card-text">There are three responses to a piece of design -Yes, No & WOW!<br>
-								Wow is the one to aim for.</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-sm-6 mb-4 ">
-					<div class="card" style="width: 16rem;">
-						<img src="V.png" class="card-img-top" alt="Video Editing">
-						<div class="card-body bg-light">
-							<h5 class="card-title">Video Editing</h5>
-							<p class="card-text">Video fasters the mindset that allows creativity to grow.</p>
-						</div>
-					</div>
-				</div>
-
-
-
-			</div>
-		</center>
-
-	</div>
-	</div>
-	</div>
-	</div>
-<!------------------------------------------------------------>
-<center>
-	<hr style="width:40%; ">
-</center>
-<!------------------------------------------------------------>
-
-<div class="text-center">
-	<a target="_blank" href="mailto:ahmedjedidi16@gmail.com">
-		<button id="competence" type="button" class="btn btn-primary m-4 h-100 p-3 fs-5">Get in touch</button>
-	</a>
-</div>
-<!------------------------------------------------------------>
-<div class="footer bg-dark text-light text-center mt-4" style="height:100px">
-	<p class="mb-0 p-3" style="color: white;">
-		MADE WITH &hearts; By Ahmed Jedidi ISET Nabeul
-	</p>
-	<p class="mb-0" style="color: white;">
-		Copyright &copy; 2022
-	</p>
-</div>
-<!------------------------------------------------------------>
-<!--Bootstrap Js-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-	crossorigin="anonymous">
-</script>
-<!------------------------------------------------------------>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-book"></i> 
+        <span style="font-size: 26px;
+        line-height: 84px;
+        letter-spacing: 0.155em;font-weight: 500;
+        font-style: normal; color: black;">Biblio</span>
+     </a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#features">features</a>
+        <a href="#shop">shop</a>
+        <a href="#categories">Genres</a>
+        <a href="#review">review</a>
+        <a href="#blogs">blogs</a>
+        <a href="#about">about</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        <div class="fas fa-user" id="login-btn"></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="shopping-cart">
+        <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="image/book.png" alt="">
+            <div class="content">
+                <h3>Book Title1</h3>
+                <span class="price">$4.99/-</span>
+                <span class="quantity">qty : 1</span>
+            </div>
+        </div>
+        <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="image/romance1.png" alt="">
+            <div class="content">
+                <h3>Book Title2</h3>
+                <span class="price">$4.99/-</span>
+                <span class="quantity">qty : 1</span>
+            </div>
+        </div>
+        <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="image/book1.png" alt="">
+            <div class="content">
+                <h3>Book Title13</h3>
+                <span class="price">$4.99/-</span>
+                <span class="quantity">qty : 1</span>
+            </div>
+        </div>
+        <div class="total"> total : $19.69/- </div>
+        <a href="#" class="btn">checkout</a>
+    </div>
+<style type="text/css">
+
+        .errspan {
+        float: left;
+        margin-right: -16px;
+        margin-left: 9px;
+        margin-top: -35px;
+        position: relative;
+        z-index: 2;
+        color: rgb(96, 96, 96);}
+</style>
+    <form action="" class="login-form">
+        <h3>login now</h3>
+        <input type="email" placeholder="&numsp;&numsp;&numsp;your email" class="box" required><span class="fa fa-envelope fa-2x errspan"></span>
+        <input type="password" placeholder="&numsp;&numsp;&numsp;your password" class="box" required><span class="fa fa-lock fa-2x errspan"></span>
+        <p>forget your password <a href="Login_v18/index.html">click here</a></p>
+        <p>don't have an account <a href="Login_v18/index1.html">create now</a></p>
+        <input type="submit" value="login now" class="btn">
+    </form>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <button class="btn-success shadow" onclick="topFunction()" id="myBtn" title="Go to top" style="display: block;">Top</button>
+
+    <div class="content">
+        <h3>Best <span>Books</span> only for your</h3>
+        <p style="color : white; text-shadow: 0px 1px #232121;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam libero nostrum veniam facere tempore nisi.</p>
+        <a href="#" class="btn">shop now</a>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- features section starts  -->
+
+<section class="features" id="features">
+
+    <h1 class="heading"> our <span>features</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="image/image1.svg" alt="">
+            <h3>limited Edition</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="image/delivery.svg" alt="">
+            <h3>free delivery</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="image/image2.png" alt="">
+            <h3>easy payments</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- features section ends -->
+
+<!-- products section starts  -->
+
+<section class="products" id="shop">
+
+    <h1 class="heading"> our <span>books</span> </h1>
+
+    <div class="swiper product-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="image/literature.png" alt="">
+                <h3>book title</h3>
+                <div class="price"> $4.99</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/fantasy.png" alt="">
+                <h3>book title</h3>
+                <div class="price"> $4.99</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/romance.png" alt="">
+                <h3>book title</h3>
+                <div class="price"> $4.99</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/book3.png" alt="">
+                <h3>book title</h3>
+                <div class="price"> $4.99</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="swiper product-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="image/book2.png" alt="">
+                <h3>book title</h3>
+                <div class="price"> $4.99</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/book4.png" alt="">
+                <h3>book title</h3>
+                <div class="price"> $4.99</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/romance1.png" alt="">
+                <h3>book title</h3>
+                <div class="price"> $4.99</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/book.png" alt="">
+                <h3>book title</h3>
+                <div class="price"> $4.99</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+<!-- products section ends -->
+
+<!-- categories section starts  -->
+
+<section class="categories" id="categories">
+
+    <h1 class="heading"> book <span>genres</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="image/fantasy.png" alt="">
+            <h3>Fantasy</h3>
+            <p>upto 45% off</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+        <div class="box">
+            <img src="image/history.png" alt="">
+            <h3>History</h3>
+            <p>upto 45% off</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+        <div class="box">
+            <img src="image/romance.png" alt="">
+            <h3>Romance</h3>
+            <p>upto 45% off</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+        <div class="box">
+            <img src="image/literature.png" alt="">
+            <h3>Literature</h3>
+            <p>upto 45% off</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- categories section ends -->
+
+<!-- review section starts  -->
+
+<section class="review" id="review">
+
+    <h1 class="heading"> customer's <span>review</span> </h1>
+
+    <div class="swiper review-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="image/pic-3.png" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
+                <h3>Ali Aloui</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/pic-2.png" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
+                <h3>Zina Mezian</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/0000000000000000000000000.jpg" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
+                <h3>Ahmed Jedidi</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/pic-4.png" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
+                <h3>Insaaf Limam</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- review section ends -->
+
+<!-- blogs section starts  -->
+
+<section class="blogs" id="blogs">
+
+    <h1 class="heading"> our <span>blogs</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="image/Media1.gif" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-user"></i> by user </a>
+                    <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2022 </a>
+                </div>
+                <h3>Book Topic Title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, expedita.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="image/Media1.gif" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-user"></i> by user </a>
+                    <a href="#"> <i class="fas fa-calendar"></i> 20th may, 2022 </a>
+                </div>
+                <h3>Book Topic Title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, expedita.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="image/Media1.gif" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-user"></i> by user </a>
+                    <a href="#"> <i class="fas fa-calendar"></i> 24th may, 2022 </a>
+                </div>
+                <h3>Book Topic Title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, expedita.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- blogs section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3 style="letter-spacing: 0.097em;"> blilio <i class="fas fa-book"></i> </h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, saepe.</p>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +216-55-555-555 </a>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +216-22-222-222 </a>
+            <a href="#" class="links"> <i class="fas fa-envelope"></i> ahmedjedidi16@gmail.com </a>
+            <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> Tunisia, Nabeul - 8000 </a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> features </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> products </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> categories </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> review </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> blogs </a>
+        </div>
+
+        <div class="box">
+            <h3>newsletter</h3>
+            <p>subscribe for latest updates</p>
+            <input type="email" placeholder="your email" class="email">
+            <input type="submit" value="subscribe" class="btn">
+            <img src="image/payment.png" class="payment-img" alt="">
+        </div>
+
+    </div>
+
+    <div class="credit"> Made with ♥ By <span> Ahmed Jedidi </span> | all rights reserved     
+        <p class="mb-0" style="color: rgb(0, 0, 0);"> Copyright © 2022 </p>
+    </div>
+
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+    <!------------------------------------------------------------>
 <script>
-	//Get the button
-	var mybutton = document.getElementById("myBtn");
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!------------------------------------------------------------>
 
-	// When the user scrolls down 20px from the top of the document, show the button
-	window.onscroll = function () { scrollFunction() };
-
-	function scrollFunction() {
-		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-			mybutton.style.display = "block";
-		} else {
-			mybutton.style.display = "none";
-		}
-	}
-
-	// When the user clicks on the button, scroll to the top of the document
-	function topFunction() {
-		document.body.scrollTop = 0;
-		document.documentElement.scrollTop = 0;
-	}
-</script>
-<!------------------------------------------------------------>
 </body>
-
 </html>
