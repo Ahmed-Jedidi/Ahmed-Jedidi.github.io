@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Ahmed Jedidi</title>
+
+    <link rel="icon" href="ico.png" type="image/png" sizes="16x16">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <!-- 
+      ========================================
+      STYLE.CSS CONTENT
+      (Copy everything inside <style> to style.css)
+      ========================================
+    -->
+    <style>
+        /* --- General Setup --- */
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Updated Font Weights - Bolder as requested */
+        h1, h2, h3, h4, h5, .display-4, .display-3, .display-5, .display-6 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400; /* Increased from 300 to 400 for better visibility */
+            letter-spacing: 2px;
+        }
+        
+        p {
+             font-family: 'Lato', sans-serif;
+             letter-spacing: 1px;
+        }
+
+        /* --- Header & Wave Animation --- */
+        .header {
+            position: relative;
+            background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+            color: white;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .inner-header {
+            height: 150px; /* Adjusted height to fit content better */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- Profile Section (Inside Header) --- */
+        .profile-container {
+            position: relative;
+            z-index: 10;
+            padding-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            /* Original Border style */
+            border: 4px solid #555; 
+            /* Transparent background as requested */
+            background-color: transparent; 
+            object-fit: cover;
+            /* Negative margin to pull it up if needed, or just standard spacing */
+            margin-bottom: 15px;
+        }
+
+        .header-title {
+            font-size: 48px;
+            margin-bottom: 5px;
+            /* Font weight handled by general h1/display-4 rule (400) */
+        }
+        
+        .header-subtitle {
+             font-weight: 700; /* BOLD (700) for the subtitle */
+             opacity: 0.9;
+        }
+
+        /* --- Waves --- */
+        .waves-container {
+            position: relative;
+            width: 100%;
+            height: 15vh;
+            margin-bottom: -7px; /* Fix for safari gap */
+            min-height: 100px;
+            max-height: 150px;
+        }
+
+        .parallax > use {
+            animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+        }
+        .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+        .parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+        .parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+        .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+
+        @keyframes move-forever {
+            0% { transform: translate3d(-90px, 0, 0); }
+            100% { transform: translate3d(85px, 0, 0); }
+        }
+
+        /* --- Components --- */
+        .social-icon {
+            font-size: 3rem; /* Slightly larger like original */
+            color: #333;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+            text-decoration: none; /* Removes the underline (the "_") */
+        }
+
+        .social-icon:hover {
+            filter: drop-shadow(3px 5px 2px rgba(0,0,0,0.4));
+            transform: translateY(-2px);
+        }
+
+        .btn-custom {
+            font-family: 'Lato', sans-serif;
+            border-radius: 4px; /* More square like original */
+            padding: 10px 40px;
+            font-size: 1.25rem;
+        }
+        
+        .btn-custom:hover {
+             filter: drop-shadow(0 0 0.75rem #b3b3f5);
+        }
+
+        .badge-skill {
+            font-size: 1.25rem; /* fs-5 equivalent */
+            padding: 1rem;
+            width: 75%;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: 700; /* BOLD (700) for skills */
+            /* Shadow from original */
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        }
+
+        .card-title {
+            font-weight: 700; /* BOLD (700) for card titles (languages/hobbies) */
+        }
+
+        .section-divider {
+            margin: 3rem 0;
+            border-top: 1px solid rgba(0,0,0,0.5); /* Increased visibility (darker) */
+        }
+
+        /* --- Scroll to Top Button --- */
+        #scrollTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: DodgerBlue; /* Original color */
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: rgb(60, 60, 250);
+            filter: drop-shadow(.5rem .5rem 1rem #4444dd);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-title { font-size: 32px; }
+            .waves-container { height: 40px; min-height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+      ========================================
+      HTML CONTENT
+      (Copy strictly between body tags to index.html)
+      ========================================
+    -->
+
+    <!-- Header Section (Now contains Profile & Name) -->
+    <header class="header">
+        <div class="inner-header">
+            <!-- Logo area if needed -->
+        </div>
+
+        <!-- Profile Info INSIDE Header (Blue Background) -->
+        <div class="profile-container">
+            <div class="text-center">
+                <!-- Transparent background, circular border -->
+                <img src="profile.png" alt="Ahmed Jedidi" class="profile-img">
+            </div>
+            <div class="text-center mt-3">
+                <h1 class="header-title display-4">Ahmed Jedidi</h1>
+                <h3 class="header-subtitle">Mobile Developer & Web Developer</h3>
+            </div>
+        </div>
+
+        <!-- Wave SVG -->
+        <div class="waves-container">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto" style="width: 100%; height: 100%;">
+                <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#f8f9fa"></use>
+                </g>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Social Icons & About -->
+        <div class="container text-center mt-4">
+            
+            <!-- Social Links -->
+            <div class="mb-4">
+                <a href="https://github.com/Ahmed-Jedidi" target="_blank" class="social-icon" aria-label="GitHub">
+                    <i class="bi bi-github"></i>
+                </a>
+                <a href="https://www.facebook.com/ahmed.jdidi.1029" target="_blank" class="social-icon" aria-label="Facebook">
+                    <i class="bi bi-facebook" style="color: #0d6efd;"></i>
+                </a>
+                <a href="https://www.canva.com/design/DAFUhzWroag/gl3mR2l51z5lrI-1AmIkGw/view?utm_content=DAFUhzWroag&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" target="_blank" class="social-icon" aria-label="Verified">
+                    <i class="bi bi-patch-check" style="color: #000;"></i>
+                </a>
+            </div>
+
+            <!-- Competences Button -->
+            <a href="https://drive.google.com/drive/folders/1F4GC5qWjc6005n-TEF4tNLKWTJ02PQ0I?usp=sharing" target="_blank" class="text-decoration-none">
+                <button type="button" class="btn btn-primary btn-custom shadow mt-2">
+                    Competences
+                </button>
+            </a>
+
+            <!-- About Text -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-8">
+                    <h2 class="display-5 mb-3">About me</h2>
+                    <p class="fs-5 text-secondary">
+                        A student of Computer Science at the Higher Institute of Technological Studies of Nabeul.<br><br>
+                        Who is passionate about developing IT & new technology.
+                        Have an active social life associated with various clubs.
+                        Also skilled at Video Editing & Design.<br><br>
+                        I am 21 years old & am really curious to learn more.
+                    </p>
+                </div>
+            </div>
+            
+            <hr class="section-divider">
+        </div>
+
+        <!-- Hard Skills -->
+        <section class="container text-center mb-5 bg-light p-4">
+            <h1 class="display-4 mb-4">Hard Skills</h1>
+            <div class="container w-75">
+                <div class="row justify-content-center mb-2">
+                    <div class="col-lg-4 mb-3"><span class="badge bg-danger badge-skill">PYTHON</span></div>
+                    <div class="col-lg-4 mb-3"><span class="badge bg-warning text-dark badge-skill">HTML5</span></div>
+                    <div class="col-lg-4 mb-3"><span class="badge bg-primary badge-skill">CSS3</span></div>
+                </div>
+                <div class="row justify-content-center mb-2">
+                    <div class="col-lg-4 mb-3"><span class="badge bg-danger badge-skill">Spring Boot</span></div>
+                    <div class="col-lg-4 mb-3"><span class="badge bg-warning text-dark badge-skill">Angular</span></div>
+                    <div class="col-lg-4 mb-3"><span class="badge bg-primary badge-skill">BOOTSTRAP</span></div>
+                </div>
+                <div class="row justify-content-center mb-2">
+                    <div class="col-lg-4 mb-3"><span class="badge bg-danger badge-skill">JAVA</span></div>
+                    <div class="col-lg-4 mb-3"><span class="badge bg-warning text-dark badge-skill">JAVASCRIPT</span></div>
+                    <div class="col-lg-4 mb-3"><span class="badge bg-primary badge-skill">Flutter</span></div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider container">
+
+        <!-- Soft Skills (Restored Colors) -->
+        <section class="container text-center mb-5 bg-light p-4">
+            <h1 class="display-4 mb-4">Soft Skills</h1>
+            <div class="container w-75">
+                <div class="row justify-content-center mb-2">
+                    <div class="col-lg-4 mb-3"><span class="badge bg-danger badge-skill">Teamwork</span></div>
+                    <div class="col-lg-4 mb-3"><span class="badge bg-warning text-dark badge-skill">Manage Time</span></div>
+                    <div class="col-lg-4 mb-3"><span class="badge bg-primary badge-skill">Creativity</span></div>
+                </div>
+                <div class="row justify-content-center mb-2">
+                    <div class="col-lg-4 mb-3"><span class="badge bg-danger badge-skill">Leadership</span></div>
+                    <div class="col-lg-4 mb-3"><span class="badge bg-warning text-dark badge-skill">Punctual</span></div>
+                    <div class="col-lg-4 mb-3"><span class="badge bg-primary badge-skill">Adaptability</span></div>
+                </div>
+                <div class="row justify-content-center mb-2">
+                    <div class="col-lg-4 mb-3"><span class="badge bg-danger badge-skill">Communication</span></div>
+                    <div class="col-lg-4 mb-3"><span class="badge bg-warning text-dark badge-skill">Friendly</span></div>
+                    <div class="col-lg-4 mb-3"><span class="badge bg-primary badge-skill">Collaboration</span></div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider container">
+
+        <!-- Clubs -->
+        <section class="container text-center bg-light p-4 w-75">
+            <h1 class="display-4 mb-5">Clubs</h1>
+            <div class="row">
+                <!-- Club 1 -->
+                <div class="col-lg-4 mb-5">
+                    <a href="https://www.facebook.com/ClubTunivisionsISETN" target="_blank" class="text-decoration-none text-dark">
+                        <img src="tu.png" class="img-fluid mb-3" alt="Tunivisions">
+                        <p>Member of Tunivisions Club ISETN on mandat 2021/2020</p>
+                        <p>A part of the <b>marketing department</b>.</p>
+                        <p>Responsible for brand identity, video editing and Photography.</p>
+                        <p>Tunivisions' multiple tasks and obligations make me acquire <b>good time management skills</b>.</p>
+                    </a>
+                </div>
+                <!-- Club 2 -->
+                <div class="col-lg-4 mb-5">
+                    <a href="https://www.facebook.com/Orange.Tech.Club.ISET.Nabeul" target="_blank" class="text-decoration-none text-dark">
+                        <img src="o.png" class="img-fluid mb-3" alt="Orange">
+                        <h2>Orange</h2>
+                        <p>Active member of Orange Tech Club ISETN</p>
+                        <p>The orange club has <b>enhanced the development of my hard skills</b> through its Continuous training like advanced FullstackJS and Artificial Intelligence...</p>
+                    </a>
+                </div>
+                <!-- Club 3 -->
+                <div class="col-lg-4 mb-5">
+                     <a href="https://www.facebook.com/ieeeisetn" target="_blank" class="text-decoration-none text-dark">
+                        <img src="i.png" class="img-fluid mb-3" alt="IEEE">
+                        <h2>IEEE</h2>
+                        <p>A part of IEEE ISETN Student Branch Since 2020</p>
+                        <p>I have held the position of <b>treasurer</b> since 2021.</p>
+                        <p>I'm in charge of financial management and creating posters.</p>
+                    </a>
+                </div>
+                <!-- Club 4 -->
+                <div class="col-lg-4 mb-5">
+                    <a href="https://www.facebook.com/club.cyber.robot.isetn" target="_blank" class="text-decoration-none text-dark">
+                        <img src="c.png" class="img-fluid mb-3" alt="CybeRobot">
+                        <h2>CybeRobot</h2>
+                        <p>Active member of Club CyberRobot ISETN</p>
+                        <p>I can proudly say that this club is nice, <b>I enjoy working in a team environment, and I get along well with people</b>.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider container">
+
+        <!-- Languages -->
+        <section class="container text-center pt-4 mt-4">
+            <h1 class="display-3 p-3">Spoken Languages</h1>
+            <div class="row justify-content-center mt-3">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card h-100" style="width: 16rem; margin: 0 auto;">
+                        <img src="SSS.png" class="card-img-top" alt="French">
+                        <div class="card-body bg-light">
+                            <h5 class="card-title">French</h5>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 67%"></div>
+                            </div>
+                            <p class="card-text">Second language</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card h-100" style="width: 16rem; margin: 0 auto;">
+                        <img src="SS.png" class="card-img-top" alt="Arab">
+                        <div class="card-body bg-light">
+                            <h5 class="card-title">Arab</h5>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 80%"></div>
+                            </div>
+                            <p class="card-text">Native language</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card h-100" style="width: 16rem; margin: 0 auto;">
+                        <img src="S.png" class="card-img-top" alt="English">
+                        <div class="card-body bg-light">
+                            <h5 class="card-title">English</h5>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 70%"></div>
+                            </div>
+                            <p class="card-text">Third language</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies -->
+        <section class="container text-center pt-4 mt-4">
+            <h1 class="display-3 p-3">Passion & Hobbies</h1>
+            <div class="row justify-content-center mt-3">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card h-100" style="width: 16rem; margin: 0 auto;">
+                        <img src="B.png" class="card-img-top" alt="Reading">
+                        <div class="card-body bg-light">
+                            <h5 class="card-title">Reading</h5>
+                            <p class="card-text">The world is a book and those who do not travel read only one page.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <a href="https://drive.google.com/drive/folders/1U3naceFqQ9ixhUFtAB0_uUX1rO-eG-yP" target="_blank" class="text-decoration-none text-dark">
+                        <div class="card h-100" style="width: 16rem; margin: 0 auto;">
+                            <img src="D.png" class="card-img-top" alt="Graphic Design">
+                            <div class="card-body bg-light">
+                                <h5 class="card-title">Graphic Design</h5>
+                                <p class="card-text">There are three responses to a piece of design -Yes, No & WOW!<br>Wow is the one to aim for.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <a href="https://drive.google.com/drive/folders/1m3lMUFVrLjNlBdOsPlBorufXq2ek_Cs0" target="_blank" class="text-decoration-none text-dark">
+                        <div class="card h-100" style="width: 16rem; margin: 0 auto;">
+                            <img src="V.png" class="card-img-top" alt="Video Editing">
+                            <div class="card-body bg-light">
+                                <h5 class="card-title">Video Editing</h5>
+                                <p class="card-text">Video fasters the mindset that allows creativity to grow.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <div class="text-center my-5">
+            <a href="mailto:ahmedjedidi777@gmail.com" class="text-decoration-none">
+                <button id="competence" type="button" class="btn btn-primary m-4 px-5 py-3 fs-5 btn-custom shadow">Get in touch</button>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4" style="height: 100px;">
+        <div class="container">
+            <p class="mb-1" style="color: white;">MADE WITH &hearts; By Ahmed Jedidi ISET Nabeul</p>
+            <p class="mb-0 small" style="color: white;">Copyright &copy; 2026</p>
+        </div>
+    </footer>
+
+    <!-- Scroll To Top Button -->
+    <button onclick="topFunction()" id="scrollTopBtn" title="Go to top">Top</button>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 
+      ========================================
+      SCRIPT.JS CONTENT
+      (Copy everything inside <script> to script.js)
+      ========================================
+    -->
+    <script>
+        // Get the button
+        let mybutton = document.getElementById("scrollTopBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+</html>
