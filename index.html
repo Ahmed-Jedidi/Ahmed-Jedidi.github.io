@@ -3,502 +3,1731 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Ahmed Jedidi</title>
-
-    <link rel="icon" href="ico.png" type="image/png" sizes="16x16">
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
-    <!-- 
-      ========================================
-      STYLE.CSS CONTENT
-      (Copy everything inside <style> to style.css)
-      ========================================
-    -->
+    <title>Ahmed JEDIDI | Software Engineering Student - AI, Cloud & DevOps</title>
+    <meta name="description" content="Software Engineering Student specializing in AI, Blockchain, Cloud Computing, DevOps, and Full-Stack Development. Available for internships and software engineering opportunities.">
+    <meta name="keywords" content="Software Engineer, AI, Machine Learning, Blockchain, IoT, Cloud Computing, DevOps, Full Stack Developer, FastAPI, React, Flutter, Docker, Azure">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- General Setup --- */
-        body {
-            font-family: 'Lato', sans-serif;
+        * {
             margin: 0;
-            color: #333;
-            background-color: #f8f9fa;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Updated Font Weights - Bolder as requested */
-        h1, h2, h3, h4, h5, .display-4, .display-3, .display-5, .display-6 {
-            font-family: 'Lato', sans-serif;
-            font-weight: 400; /* Increased from 300 to 400 for better visibility */
-            letter-spacing: 2px;
-        }
-        
-        p {
-             font-family: 'Lato', sans-serif;
-             letter-spacing: 1px;
+        /*:root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+        }*/
+
+
+        :root {
+            --primary: #6366f1;      /* Orange */
+            --secondary: #8b5cf6;    /* Pink */
+            --accent: #ec4899;       /* Purple */
+            --dark: #111827;         /* Dark blue-gray */
+            --darker: #030712;       /* Deep navy */       /* Deep warm black */
+            --light: #edfffe;        /* Warm cream */
+            --gray: #64748b;         /* Warm gray */
+            --success: #10b981;      /* Teal green */
         }
 
-        /* --- Header & Wave Animation --- */
-        .header {
-            position: relative;
-            background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
-            color: white;
-            padding-top: 20px;
-            text-align: center;
+
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .inner-header {
-            height: 150px; /* Adjusted height to fit content better */
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
             width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            opacity: 0.15;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .bg-animation::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+            opacity: 0.1;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(50px, 50px) rotate(180deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
-        /* --- Profile Section (Inside Header) --- */
-        .profile-container {
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
             position: relative;
-            z-index: 10;
-            padding-bottom: 20px;
         }
 
-        .profile-img {
-            width: 200px;
-            height: 200px;
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-text .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-text .location {
+            font-size: 1.1rem;
+            color: var(--light);
+            opacity: 0.7;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .hero-text .location i {
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        .hero-text .about-brief {
+            font-size: 1rem;
+            color: var(--light);
+            opacity: 0.85;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        .hero-highlights {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .highlight-icon i {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .highlight-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+        }
+
+        .highlight-text p {
+            font-size: 0.95rem;
+            color: var(--light);
+            opacity: 0.8;
+        }
+
+        /* Section Styles */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .education-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .education-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .education-info h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-info .degree {
+            color: var(--light);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-info .location {
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-info .period {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Experience Timeline */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
             border-radius: 50%;
-            /* Original Border style */
-            border: 4px solid #555; 
-            /* Transparent background as requested */
-            background-color: transparent; 
-            object-fit: cover;
-            /* Negative margin to pull it up if needed, or just standard spacing */
-            margin-bottom: 15px;
+            border: 3px solid var(--darker);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
         }
 
-        .header-title {
-            font-size: 48px;
-            margin-bottom: 5px;
-            /* Font weight handled by general h1/display-4 rule (400) */
+        .experience-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
+
+        .experience-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-meta span {
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .experience-meta i {
+            color: var(--accent);
+        }
+
+        .experience-description {
+            color: var(--light);
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .experience-achievements {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-achievements li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+            color: var(--light);
+            opacity: 0.85;
+        }
+
+        .experience-achievements li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tech-tag {
+            background: rgba(236, 72, 153, 0.1);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .skills-category {
+            margin-bottom: 2.5rem;
+        }
+
+        .skills-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .skills-category h3 i {
+            font-size: 1.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.7rem 1.3rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            transition: all 0.3s;
+            color: var(--light);
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* Soft Skills */
+        .soft-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .soft-skill-item {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+        }
+
+        .soft-skill-item:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .soft-skill-item i {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .soft-skill-item span {
+            font-size: 1.05rem;
+            color: var(--light);
+        }
+
+        /* Languages */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .language-card {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .language-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .language-name {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .language-level {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .language-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .language-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            transition: width 1s ease-out;
+        }
+
+        /* Community */
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .community-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s;
+        }
+
+        .community-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .community-name {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .community-role {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .community-period {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .community-desc {
+            color: var(--light);
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .contact-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .availability-badge .pulse {
+            width: 12px;
+            height: 12px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            text-decoration: none;
+            color: var(--light);
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .contact-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .contact-link i {
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .scroll-top:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+
+
+
+  
+
         
-        .header-subtitle {
-             font-weight: 700; /* BOLD (700) for the subtitle */
-             opacity: 0.9;
-        }
-
-        /* --- Waves --- */
-        .waves-container {
+        .profile-photo-container {
             position: relative;
             width: 100%;
-            height: 15vh;
-            margin-bottom: -7px; /* Fix for safari gap */
-            min-height: 100px;
-            max-height: 150px;
+            max-width: 400px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out 0.7s backwards;
         }
 
-        .parallax > use {
-            animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
-        }
-        .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
-        .parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
-        .parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
-        .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
-
-        @keyframes move-forever {
-            0% { transform: translate3d(-90px, 0, 0); }
-            100% { transform: translate3d(85px, 0, 0); }
+        .profile-photo-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            border-radius: 30px;
+            overflow: hidden;
         }
 
-        /* --- Components --- */
-        .social-icon {
-            font-size: 3rem; /* Slightly larger like original */
-            color: #333;
-            transition: all 0.3s ease;
-            margin: 0 10px;
-            text-decoration: none; /* Removes the underline (the "_") */
+        .profile-photo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+            border: 4px solid rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+            transition: all 0.5s ease;
         }
 
-        .social-icon:hover {
-            filter: drop-shadow(3px 5px 2px rgba(0,0,0,0.4));
-            transform: translateY(-2px);
+        .profile-photo:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 25px 80px rgba(99, 102, 241, 0.5);
         }
 
-        .btn-custom {
-            font-family: 'Lato', sans-serif;
-            border-radius: 4px; /* More square like original */
-            padding: 10px 40px;
-            font-size: 1.25rem;
-        }
-        
-        .btn-custom:hover {
-             filter: drop-shadow(0 0 0.75rem #b3b3f5);
-        }
-
-        .badge-skill {
-            font-size: 1.25rem; /* fs-5 equivalent */
-            padding: 1rem;
-            width: 75%;
-            display: inline-block;
-            margin-bottom: 10px;
-            font-weight: 700; /* BOLD (700) for skills */
-            /* Shadow from original */
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        .profile-photo-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
+            opacity: 0.1;
+            animation: rotate 20s linear infinite;
+            z-index: -1;
         }
 
-        .card-title {
-            font-weight: 700; /* BOLD (700) for card titles (languages/hobbies) */
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        .section-divider {
-            margin: 3rem 0;
-            border-top: 1px solid rgba(0,0,0,0.5); /* Increased visibility (darker) */
+        .profile-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        /* --- Scroll to Top Button --- */
-        #scrollTopBtn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            background-color: DodgerBlue; /* Original color */
-            color: white;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 4px;
+        .profile-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            font-size: 0.9rem;
+            color: var(--light);
         }
 
-        #scrollTopBtn:hover {
-            background-color: rgb(60, 60, 250);
-            filter: drop-shadow(.5rem .5rem 1rem #4444dd);
+        .profile-badge i {
+            color: var(--accent);
         }
 
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .header-title { font-size: 32px; }
-            .waves-container { height: 40px; min-height: 40px; }
+        .hero-highlights {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
         }
     </style>
 </head>
 <body>
-
-    <!-- 
-      ========================================
-      HTML CONTENT
-      (Copy strictly between body tags to index.html)
-      ========================================
-    -->
-
-    <!-- Header Section (Now contains Profile & Name) -->
-    <header class="header">
-        <div class="inner-header">
-            <!-- Logo area if needed -->
+    <div class="bg-animation"></div>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Software Engineering Student</div>
+            <ul class="nav-links">
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
 
-        <!-- Profile Info INSIDE Header (Blue Background) -->
-        <div class="profile-container">
-            <div class="text-center">
-                <!-- Transparent background, circular border -->
-                <img src="profile.png" alt="Ahmed Jedidi" class="profile-img">
+            <!-- ADD THIS NEW SECTION FOR PROFILE PHOTO -->
+            <div class="profile-photo-container">
+                <div class="profile-photo-wrapper">
+                    <img src="profilBG.png" alt="Ahmed JEDIDI" class="profile-photo">
+                </div>
+                <div class="profile-badges">
+                    <div class="profile-badge">
+                        <i class="fas fa-code"></i>
+                        <span>Full-Stack Developer</span>
+                    </div>
+                    <div class="profile-badge">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Enthusiast</span>
+                    </div>
+                    <div class="profile-badge">
+                        <i class="fas fa-cloud"></i>
+                        <span>Cloud & DevOps</span>
+                    </div>
+                </div>
             </div>
-            <div class="text-center mt-3">
-                <h1 class="header-title display-4">Ahmed Jedidi</h1>
-                <h3 class="header-subtitle">Mobile Developer & Web Developer</h3>
+            <!-- END OF PROFILE PHOTO SECTION -->
+
+
+            <div class="hero-text">
+                <h1>Ahmed JEDIDI</h1>
+                <p class="subtitle">Software Engineering Student</p>
+                <p class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Karlsruhe, Germany (International Exchange) 
+                </p>
+                <p class="about-brief">
+                    Highly motivated and disciplined with a pronounced taste for challenges. Focused on becoming a professional in the IT field by applying theoretical and practical skills acquired through academic coursework and hands-on experience. Looking for opportunities to build a challenging career and innovatively apply my experience in AI, blockchain, cloud computing, and software development.
+                </p>
+                <div class="cta-buttons">
+                    <a href="mailto:ahmedjedidi777@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                    <a href="https://github.com/Ahmed-Jedidi" target="_blank" class="btn btn-outline">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://drive.google.com/drive/folders/1F4GC5qWjc6005n-TEF4tNLKWTJ02PQ0I?usp=sharing" target="_blank" class="btn btn-success">
+                        <i class="fas fa-globe"></i> Competences
+                    </a>
+                        <a href="https://drive.google.com/file/d/14JHbcz32AI6EX2ezq5PuVUAqiROzqwB4/view?usp=sharing" target="_blank" class="btn btn-success">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+
+
+
+
+                    
+                </div>
+            </div>
+            <div class="hero-highlights">
+                <!-- Existing highlights -->
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="highlight-text">
+                        <h3>Current Education</h3>
+                        <p>International Exchange at Karlsruhe University of Applied Sciences & Engineer's Degree at ISIMS Sfax</p>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="highlight-text">
+                        <h3>Specialization</h3>
+                        <p>AI, Machine Learning, Cloud Computing, DevOps, Full-Stack Development</p>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="highlight-text">
+                        <h3>Seeking Opportunities</h3>
+                        <p>Open for internships and software engineering roles in AI, Cloud, or Full-Stack Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">Academic Background & Qualifications</p>
+        <div class="education-grid">
+            <div class="education-card">
+                <div class="education-header">
+                    <div class="education-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="education-info">
+                        <h3>Karlsruhe University of Applied Sciences</h3>
+                        <p class="degree">International Exchange Student</p>
+                        <p class="location">Karlsruhe, Germany</p>
+                        <p class="period">September 2025 – Current</p>
+                    </div>
+                </div>
+            </div>
+            <div class="education-card">
+                <div class="education-header">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-info">
+                        <h3>Higher Institute of Computer Science and Multimedia of Sfax</h3>
+                        <p class="degree">Engineer's Degree in Computer Engineering</p>
+                        <p class="location">Sfax, Tunisia</p>
+                        <p class="period">September 2023 – Current</p>
+                    </div>
+                </div>
+            </div>
+            <div class="education-card">
+                <div class="education-header">
+                    <div class="education-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="education-info">
+                        <h3>Higher Institute of Technological Studies of Nabeul</h3>
+                        <p class="degree">Bachelor's Degree in Information System Development</p>
+                        <p class="location">Nabeul, Tunisia</p>
+                        <p class="period">September 2020 – July 2023</p>
+                    </div>
+                </div>
+            </div>
+            <div class="education-card">
+                <div class="education-header">
+                    <div class="education-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="education-info">
+                        <h3>High school Mohamed Boudhina Hammamet</h3>
+                        <p class="degree">High school Diploma in Mathematics</p>
+                        <p class="location">Hammamet, Tunisia</p>
+                        <p class="period">June 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Work Experience & Training</h2>
+        <p class="section-subtitle">Professional experience in research, development, and innovation</p>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <h3 class="experience-title">Research Internship - Blockchain in IoT</h3>
+                <div class="experience-meta">
+                    <span><i class="fas fa-building"></i> CES LAB ENIS</span>
+                    <span><i class="fas fa-calendar"></i> February 2025 – August 2025</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Research & Development</span>
+                </div>
+                <p class="experience-description">
+                    Conducted advanced research on applying blockchain technology in the agriculture sector, focusing on IOTA's Tangle and smart contracts for secure data traceability and transparency.
+                </p>
+                <ul class="experience-achievements">
+                    <li>Analyzed and compared IOTA's DAG-based architecture with traditional blockchain frameworks (Hyperledger Fabric, Ethereum, Hedera)</li>
+                    <li>Developed and deployed sensor data management solution using custom Move-based smart contracts for IOTA</li>
+                    <li>Enabled decentralized storage and retrieval of sensor network data</li>
+                    <li>Contributed to research report on lightweight distributed ledger and blockchain-based solutions for IoT in agriculture and environmental monitoring</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">Blockchain</span>
+                    <span class="tech-tag">IOTA</span>
+                    <span class="tech-tag">IoT</span>
+                    <span class="tech-tag">Smart Contracts</span>
+                    <span class="tech-tag">Move Language</span>
+                    <span class="tech-tag">DAG Architecture</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3 class="experience-title">Software Development Internship - VR Game Design</h3>
+                <div class="experience-meta">
+                    <span><i class="fas fa-building"></i> Vindact</span>
+                    <span><i class="fas fa-calendar"></i> June 2024 – July 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Virtual Reality Development</span>
+                </div>
+                <p class="experience-description">
+                    Designed and developed interactive Virtual Reality game, enhancing user experience through immersive gameplay mechanics.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Virtual Reality</span>
+                    <span class="tech-tag">Game Development</span>
+                    <span class="tech-tag">3D Graphics</span>
+                    <span class="tech-tag">User Experience</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3 class="experience-title">Traineeship - AI-Driven Digital Transformation</h3>
+                <div class="experience-meta">
+                    <span><i class="fas fa-building"></i> Product House</span>
+                    <span><i class="fas fa-calendar"></i> February 2023 – June 2023</span>
+                    <span><i class="fas fa-map-marker-alt"></i> AI & Automation</span>
+                </div>
+                <p class="experience-description">
+                    Developed AI-Powered Smart Process Automation mobile and web application to automate content generation and management for Japanese companies facing technological gaps.
+                </p>
+                <ul class="experience-achievements">
+                    <li>Utilized AI technologies including GPT, text-to-image generation, and image background remover</li>
+                    <li>Built cross-platform application using Flutter for mobile and web deployment</li>
+                    <li>Deployed on cloud infrastructure with DNS integration</li>
+                    <li>Enabled tailored content creation and streamlined publication on Webflow and social media</li>
+                    <li>Enhanced companies' online visibility and audience engagement</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">AI/ML</span>
+                    <span class="tech-tag">GPT</span>
+                    <span class="tech-tag">Flutter</span>
+                    <span class="tech-tag">Cloud Deployment</span>
+                    <span class="tech-tag">Webflow</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3 class="experience-title">Software Development Internship - Smart Do AI</h3>
+                <div class="experience-meta">
+                    <span><i class="fas fa-building"></i> SYSTEMATIC Software Solutions</span>
+                    <span><i class="fas fa-calendar"></i> January 2023 – February 2023</span>
+                    <span><i class="fas fa-map-marker-alt"></i> AI Application Development</span>
+                </div>
+                <p class="experience-description">
+                    Developed innovative AI-powered note-taking application leveraging advanced AI technologies including OpenAI's GPT-3 and machine learning.
+                </p>
+                <ul class="experience-achievements">
+                    <li>Created user-friendly interface using Figma for optimal UX design</li>
+                    <li>Integrated AI features including NLP for context-based responses and text-to-image generation</li>
+                    <li>Implemented voice-assisted functionalities with custom visual content generation and background removal</li>
+                    <li>Utilized Hive and Firebase for local data storage and persistent note management</li>
+                    <li>Deployed application on web and Google Play Store, managing assets and platform compliance</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">Flutter</span>
+                    <span class="tech-tag">Dart</span>
+                    <span class="tech-tag">GPT-3</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">Figma</span>
+                    <span class="tech-tag">Google Play</span>
+                    <span class="tech-tag">UI/UX Design</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3 class="experience-title">Freelance Developer</h3>
+                <div class="experience-meta">
+                    <span><i class="fas fa-building"></i> 123CORP</span>
+                    <span><i class="fas fa-calendar"></i> June 2022 – November 2022</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Mobile & Web Development</span>
+                </div>
+                <ul class="experience-achievements">
+                    <li>Maintained and upgraded old React Native apps to uphold quality standards and API levels</li>
+                    <li>Built 14 currency converter applications for various countries using React Native, Firebase, and AdMob</li>
+                    <li>Worked on "Zidni" e-commerce website using WordPress</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">React Native</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">AdMob</span>
+                    <span class="tech-tag">WordPress</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3 class="experience-title">System Integration Internship</h3>
+                <div class="experience-meta">
+                    <span><i class="fas fa-building"></i> B2M-IT</span>
+                    <span><i class="fas fa-calendar"></i> January 2022 – February 2022</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Full-Stack Development</span>
+                </div>
+                <ul class="experience-achievements">
+                    <li>Analyzed business needs and translated them into technical specifications</li>
+                    <li>Developed full-stack web application using Angular (front-end), Spring Boot (back-end), and MySQL (database)</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">Angular</span>
+                    <span class="tech-tag">Spring Boot</span>
+                    <span class="tech-tag">MySQL</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3 class="experience-title">IT Maintenance Internship</h3>
+                <div class="experience-meta">
+                    <span><i class="fas fa-building"></i> TIBH</span>
+                    <span><i class="fas fa-calendar"></i> July 2021</span>
+                    <span><i class="fas fa-map-marker-alt"></i> IT Support</span>
+                </div>
+                <p class="experience-description">
+                    Provided technical support, IT maintenance, and troubleshooting solutions for hardware and software issues.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Technical Support</span>
+                    <span class="tech-tag">Hardware Maintenance</span>
+                    <span class="tech-tag">Troubleshooting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Innovative solutions demonstrating technical experience</p>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <h3 class="experience-title">DevOps Project - Full Automation of FastAPI Application Lifecycle</h3>
+                <div class="experience-meta">
+                    <span><i class="fas fa-briefcase"></i> DevOps & Cloud Infrastructure</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Azure Cloud</span>
+                </div>
+                <p class="experience-description">
+                    Development and deployment of complete DevOps pipeline for Python web application using FastAPI, integrating source control, continuous integration, containerization, and automated cloud deployment.
+                </p>
+                <ul class="experience-achievements">
+                    <li>Designed and developed RESTful APIs with FastAPI ensuring modularity and maintainability</li>
+                    <li>Set up Git and GitLab workflows including branches, merge requests, conflict resolution, and permissions</li>
+                    <li>Built and optimized CI/CD pipeline automating tests, linting, and code quality checks with Pytest, Coverage, and Pylint (achieved over 90% coverage)</li>
+                    <li>Containerized application using Docker for consistent and portable deployment</li>
+                    <li>Deployed containerized app on Microsoft Azure Virtual Machines using Docker Contexts</li>
+                    <li>Automated infrastructure provisioning with Terraform following Infrastructure as Code (IaC) principles</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">Git</span>
+                    <span class="tech-tag">GitLab CI/CD</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">Pytest</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Microsoft Azure</span>
+                    <span class="tech-tag">Terraform</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3 class="experience-title">HR Help - AI-Assisted Intelligent Recruitment Platform</h3>
+                <div class="experience-meta">
+                    <span><i class="fas fa-briefcase"></i> Software Development Project</span>
+                    <span><i class="fas fa-map-marker-alt"></i> AI & Machine Learning</span>
+                </div>
+                <p class="experience-description">
+                    Development of intelligent recruitment platform automating HR processes through multimodal AI analysis of candidates' CVs and video interviews.
+                </p>
+                <ul class="experience-achievements">
+                    <li>Automatically retrieves and analyzes CVs using web scraping and LangChain</li>
+                    <li>Transcribes video interviews with speech-to-text processing using OpenAI Whisper</li>
+                    <li>Performs facial emotion recognition (FER) to evaluate candidate engagement and communication</li>
+                    <li>Evaluates candidates through local LLM (Ollama + Qwen 2.5) orchestrated by LangChain</li>
+                    <li>Designed AI decision-support module generating objective candidate profiles and recruitment scores aligned with job specifications</li>
+                    <li>Contributed to architecture design, FastAPI backend, and React frontend integration</li>
+                    <li>Managed containerized deployments for scalability using Docker</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Whisper</span>
+                    <span class="tech-tag">FER</span>
+                    <span class="tech-tag">LangChain</span>
+                    <span class="tech-tag">Ollama</span>
+                    <span class="tech-tag">Qwen 2.5</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">Python</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Comprehensive experience in modern technologies</p>
+        <div class="skills-container">
+            <div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Dart</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3><i class="fas fa-server"></i> Backend Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Nginx</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Flutter</span>
+                    </div>
+                </div>
+
+                
+                <div class="skills-category">
+                    <h3><i class="fas fa-database"></i> Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Firebase</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+
+                <div class="skills-category">
+                    <h3><i class="fas fa-cloud"></i> DevOps & Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Microsoft Azure</span>
+                        <span class="skill-tag">CI/CD Pipelines</span>
+                        <span class="skill-tag">Git/GitLab/GitHub</span>
+                        <span class="skill-tag">Nginx</span>
+                        <span class="skill-tag">Linux/Ubuntu</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3><i class="fas fa-brain"></i> AI & Emerging Tech</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Blockchain</span>
+                        <span class="skill-tag">IoT</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3><i class="fas fa-mobile-alt"></i> Mobile Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Android Development</span>
+                        <span class="skill-tag">Android Studio</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">React Native</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3><i class="fas fa-palette"></i> Design & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Video Editing</span>
+                        <span class="skill-tag">Graphic Design</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Wave SVG -->
-        <div class="waves-container">
-            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto" style="width: 100%; height: 100%;">
-                <defs>
-                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
-                </defs>
-                <g class="parallax">
-                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#f8f9fa"></use>
-                </g>
-            </svg>
+        <!-- Interests -->
+        <h3 class="section-title" style="margin-top: 4rem;">Interests & Hobbies</h3>
+        <p class="section-subtitle">Passions beyond technology</p>
+        <div class="soft-skills-grid">
+            <div class="soft-skill-item">
+                <i class="fas fa-microchip"></i>
+                <span>Technology & Innovation</span>
+            </div>
+            <div class="soft-skill-item">
+                <i class="fas fa-palette"></i>
+                <span>Graphic Design & Video Editing</span>
+            </div>
+            <div class="soft-skill-item">
+                <i class="fas fa-book"></i>
+                <span>Reading & Continuous Learning</span>
+            </div>
+            <div class="soft-skill-item">
+                <i class="fas fa-running"></i>
+                <span>Sports - Jogging & Football</span>
+            </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Main Content -->
-    <main>
+    <!-- Languages -->
+    <section id="languages">
+        <h2 class="section-title">Languages</h2>
+        <p class="section-subtitle">Multilingual communication capabilities</p>
+        <div class="languages-grid">
+            <div class="language-card">
+                <h3 class="language-name">Arabic</h3>
+                <div class="language-bar">
+                    <div class="language-progress" data-progress="100"></div>
+                </div>
+                <p class="language-level">Native</p>
+            </div>
+            <div class="language-card">
+                <h3 class="language-name">English</h3>
+                <div class="language-bar">
+                    <div class="language-progress" data-progress="85"></div>
+                </div>
+                <p class="language-level">Advanced</p>
+            </div>
+            <div class="language-card">
+                <h3 class="language-name">French</h3>
+                <div class="language-bar">
+                    <div class="language-progress" data-progress="70"></div>
+                </div>
+                <p class="language-level">Intermediate</p>
+            </div>
+            <div class="language-card">
+                <h3 class="language-name">German</h3>
+                <div class="language-bar">
+                    <div class="language-progress" data-progress="40"></div>
+                </div>
+                <p class="language-level">Beginner</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community">
+        <h2 class="section-title">Social Commitments & Club Involvement</h2>
+        <p class="section-subtitle">Active leadership and participation in tech communities</p>
+        <div class="community-grid">
+            <div class="community-card">
+                <h3 class="community-name">AWS Cloud Club ISIMS</h3>
+                <p class="community-role">Co-Founder & Human Resources Manager</p>
+                <p class="community-period">2024 – 2025</p>
+                <p class="community-desc">
+                    Led recruitment strategies and member engagement initiatives. Organized cloud computing workshops and hands-on AWS training sessions to enhance students' cloud expertise.
+                </p>
+            </div>
+            <div class="community-card">
+                <h3 class="community-name">Google Developer Group (GDG) FSS</h3>
+                <p class="community-role">Core Team - Video Editor</p>
+                <p class="community-period">2024 – 2025</p>
+                <p class="community-desc">
+                    Created high-quality promotional and educational videos content for tech events and workshops, enhancing community outreach and engagement.
+                </p>
+            </div>
+            <div class="community-card">
+                <h3 class="community-name">Club Aéromodélisme Enet'com</h3>
+                <p class="community-role">Project Manager</p>
+                <p class="community-period">2023 – 2025</p>
+                <p class="community-desc">
+                    Oversaw aeromodelling projects, ensuring technical feasibility and resource management. Coordinated team efforts for successful project completion.
+                </p>
+            </div>
+            <div class="community-card">
+                <h3 class="community-name">IEEE ISETN Student Branch</h3>
+                <p class="community-role">Treasurer</p>
+                <p class="community-period">2021 – 2023</p>
+                <p class="community-desc">
+                    Managed financial operations and organized tech events. Ensured transparent budget management and contributed to branch growth.
+                </p>
+            </div>
+            <div class="community-card">
+                <h3 class="community-name">Orange Tech Club ISETN</h3>
+                <p class="community-role">Active Member</p>
+                <p class="community-period">2021 – 2023</p>
+                <p class="community-desc">
+                    Participated in intensive training programs including Fullstack JavaScript and AI sessions, enhancing technical skills through hands-on learning.
+                </p>
+            </div>
+        </div>
+
+
+
+
         
-        <!-- Social Icons & About -->
-        <div class="container text-center mt-4">
-            
-            <!-- Social Links -->
-            <div class="mb-4">
-                <a href="https://github.com/Ahmed-Jedidi" target="_blank" class="social-icon" aria-label="GitHub">
-                    <i class="bi bi-github"></i>
-                </a>
-                <a href="https://www.facebook.com/ahmed.jdidi.1029" target="_blank" class="social-icon" aria-label="Facebook">
-                    <i class="bi bi-facebook" style="color: #0d6efd;"></i>
-                </a>
-                <a href="https://www.canva.com/design/DAFUhzWroag/gl3mR2l51z5lrI-1AmIkGw/view?utm_content=DAFUhzWroag&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" target="_blank" class="social-icon" aria-label="Verified">
-                    <i class="bi bi-patch-check" style="color: #000;"></i>
-                </a>
+        <!-- Soft Skills -->
+        <h3 class="section-title" style="margin-top: 4rem;">Professional Skills</h3>
+        <p class="section-subtitle">Essential competencies for team success</p>
+        <div class="soft-skills-grid">
+            <div class="soft-skill-item">
+                <i class="fas fa-users"></i>
+                <span>Teamwork & Collaboration</span>
             </div>
-
-            <!-- Competences Button -->
-            <a href="https://drive.google.com/drive/folders/1F4GC5qWjc6005n-TEF4tNLKWTJ02PQ0I?usp=sharing" target="_blank" class="text-decoration-none">
-                <button type="button" class="btn btn-primary btn-custom shadow mt-2">
-                    Competences
-                </button>
-            </a>
-
-            <!-- About Text -->
-            <div class="row justify-content-center mt-5">
-                <div class="col-lg-8">
-                    <h2 class="display-5 mb-3">About me</h2>
-                    <p class="fs-5 text-secondary">
-                        A student of Computer Science at the Higher Institute of Technological Studies of Nabeul.<br><br>
-                        Who is passionate about developing IT & new technology.
-                        Have an active social life associated with various clubs.
-                        Also skilled at Video Editing & Design.<br><br>
-                        I am 21 years old & am really curious to learn more.
-                    </p>
-                </div>
+            <div class="soft-skill-item">
+                <i class="fas fa-lightbulb"></i>
+                <span>Problem Solving</span>
             </div>
-            
-            <hr class="section-divider">
+            <div class="soft-skill-item">
+                <i class="fas fa-comments"></i>
+                <span>Communication</span>
+            </div>
+            <div class="soft-skill-item">
+                <i class="fas fa-crown"></i>
+                <span>Leadership</span>
+            </div>
+            <div class="soft-skill-item">
+                <i class="fas fa-clock"></i>
+                <span>Time Management</span>
+            </div>
+            <div class="soft-skill-item">
+                <i class="fas fa-random"></i>
+                <span>Adaptability</span>
+            </div>
+            <div class="soft-skill-item">
+                <i class="fas fa-palette"></i>
+                <span>Creativity & Innovation</span>
+            </div>
+            <div class="soft-skill-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Continuous Learning</span>
+            </div>
         </div>
+    </section>
 
-        <!-- Hard Skills -->
-        <section class="container text-center mb-5 bg-light p-4">
-            <h1 class="display-4 mb-4">Hard Skills</h1>
-            <div class="container w-75">
-                <div class="row justify-content-center mb-2">
-                    <div class="col-lg-4 mb-3"><span class="badge bg-danger badge-skill">PYTHON</span></div>
-                    <div class="col-lg-4 mb-3"><span class="badge bg-warning text-dark badge-skill">HTML5</span></div>
-                    <div class="col-lg-4 mb-3"><span class="badge bg-primary badge-skill">CSS3</span></div>
-                </div>
-                <div class="row justify-content-center mb-2">
-                    <div class="col-lg-4 mb-3"><span class="badge bg-danger badge-skill">Spring Boot</span></div>
-                    <div class="col-lg-4 mb-3"><span class="badge bg-warning text-dark badge-skill">Angular</span></div>
-                    <div class="col-lg-4 mb-3"><span class="badge bg-primary badge-skill">BOOTSTRAP</span></div>
-                </div>
-                <div class="row justify-content-center mb-2">
-                    <div class="col-lg-4 mb-3"><span class="badge bg-danger badge-skill">JAVA</span></div>
-                    <div class="col-lg-4 mb-3"><span class="badge bg-warning text-dark badge-skill">JAVASCRIPT</span></div>
-                    <div class="col-lg-4 mb-3"><span class="badge bg-primary badge-skill">Flutter</span></div>
-                </div>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-content">
+            <div class="availability-badge">
+                <div class="pulse"></div>
+                <span>Available for Internships & Software Engineering Opportunities</span>
             </div>
-        </section>
-
-        <hr class="section-divider container">
-
-        <!-- Soft Skills (Restored Colors) -->
-        <section class="container text-center mb-5 bg-light p-4">
-            <h1 class="display-4 mb-4">Soft Skills</h1>
-            <div class="container w-75">
-                <div class="row justify-content-center mb-2">
-                    <div class="col-lg-4 mb-3"><span class="badge bg-danger badge-skill">Teamwork</span></div>
-                    <div class="col-lg-4 mb-3"><span class="badge bg-warning text-dark badge-skill">Manage Time</span></div>
-                    <div class="col-lg-4 mb-3"><span class="badge bg-primary badge-skill">Creativity</span></div>
-                </div>
-                <div class="row justify-content-center mb-2">
-                    <div class="col-lg-4 mb-3"><span class="badge bg-danger badge-skill">Leadership</span></div>
-                    <div class="col-lg-4 mb-3"><span class="badge bg-warning text-dark badge-skill">Punctual</span></div>
-                    <div class="col-lg-4 mb-3"><span class="badge bg-primary badge-skill">Adaptability</span></div>
-                </div>
-                <div class="row justify-content-center mb-2">
-                    <div class="col-lg-4 mb-3"><span class="badge bg-danger badge-skill">Communication</span></div>
-                    <div class="col-lg-4 mb-3"><span class="badge bg-warning text-dark badge-skill">Friendly</span></div>
-                    <div class="col-lg-4 mb-3"><span class="badge bg-primary badge-skill">Collaboration</span></div>
-                </div>
+            <p class="section-subtitle">
+                Open to opportunities in Software Engineering, AI/ML, IoT, Cloud Computing, DevOps, and Full-Stack Development
+            </p>
+            <div class="contact-methods">
+                <a href="mailto:ahmedjedidi777@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>ahmedjedidi777@gmail.com</span>
+                </a>
+                <a href="tel:+4915511309475" class="contact-link">
+                    <i class="fas fa-phone"></i>
+                    <span>+49 1551 1309475</span>
+                </a>
+                <a href="https://github.com/Ahmed-Jedidi" target="_blank" class="contact-link">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub Profile</span>
+                </a>
+                <a href="https://Ahmed-Jedidi.github.io" target="_blank" class="contact-link">
+                    <i class="fas fa-globe"></i>
+                    <span>Portfolio Website</span>
+                </a>
             </div>
-        </section>
-
-        <hr class="section-divider container">
-
-        <!-- Clubs -->
-        <section class="container text-center bg-light p-4 w-75">
-            <h1 class="display-4 mb-5">Clubs</h1>
-            <div class="row">
-                <!-- Club 1 -->
-                <div class="col-lg-4 mb-5">
-                    <a href="https://www.facebook.com/ClubTunivisionsISETN" target="_blank" class="text-decoration-none text-dark">
-                        <img src="tu.png" class="img-fluid mb-3" alt="Tunivisions">
-                        <p>Member of Tunivisions Club ISETN on mandat 2021/2020</p>
-                        <p>A part of the <b>marketing department</b>.</p>
-                        <p>Responsible for brand identity, video editing and Photography.</p>
-                        <p>Tunivisions' multiple tasks and obligations make me acquire <b>good time management skills</b>.</p>
-                    </a>
-                </div>
-                <!-- Club 2 -->
-                <div class="col-lg-4 mb-5">
-                    <a href="https://www.facebook.com/Orange.Tech.Club.ISET.Nabeul" target="_blank" class="text-decoration-none text-dark">
-                        <img src="o.png" class="img-fluid mb-3" alt="Orange">
-                        <h2>Orange</h2>
-                        <p>Active member of Orange Tech Club ISETN</p>
-                        <p>The orange club has <b>enhanced the development of my hard skills</b> through its Continuous training like advanced FullstackJS and Artificial Intelligence...</p>
-                    </a>
-                </div>
-                <!-- Club 3 -->
-                <div class="col-lg-4 mb-5">
-                     <a href="https://www.facebook.com/ieeeisetn" target="_blank" class="text-decoration-none text-dark">
-                        <img src="i.png" class="img-fluid mb-3" alt="IEEE">
-                        <h2>IEEE</h2>
-                        <p>A part of IEEE ISETN Student Branch Since 2020</p>
-                        <p>I have held the position of <b>treasurer</b> since 2021.</p>
-                        <p>I'm in charge of financial management and creating posters.</p>
-                    </a>
-                </div>
-                <!-- Club 4 -->
-                <div class="col-lg-4 mb-5">
-                    <a href="https://www.facebook.com/club.cyber.robot.isetn" target="_blank" class="text-decoration-none text-dark">
-                        <img src="c.png" class="img-fluid mb-3" alt="CybeRobot">
-                        <h2>CybeRobot</h2>
-                        <p>Active member of Club CyberRobot ISETN</p>
-                        <p>I can proudly say that this club is nice, <b>I enjoy working in a team environment, and I get along well with people</b>.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <hr class="section-divider container">
-
-        <!-- Languages -->
-        <section class="container text-center pt-4 mt-4">
-            <h1 class="display-3 p-3">Spoken Languages</h1>
-            <div class="row justify-content-center mt-3">
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="card h-100" style="width: 16rem; margin: 0 auto;">
-                        <img src="SSS.png" class="card-img-top" alt="French">
-                        <div class="card-body bg-light">
-                            <h5 class="card-title">French</h5>
-                            <div class="progress mb-2">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 67%"></div>
-                            </div>
-                            <p class="card-text">Second language</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="card h-100" style="width: 16rem; margin: 0 auto;">
-                        <img src="SS.png" class="card-img-top" alt="Arab">
-                        <div class="card-body bg-light">
-                            <h5 class="card-title">Arab</h5>
-                            <div class="progress mb-2">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 80%"></div>
-                            </div>
-                            <p class="card-text">Native language</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="card h-100" style="width: 16rem; margin: 0 auto;">
-                        <img src="S.png" class="card-img-top" alt="English">
-                        <div class="card-body bg-light">
-                            <h5 class="card-title">English</h5>
-                            <div class="progress mb-2">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 70%"></div>
-                            </div>
-                            <p class="card-text">Third language</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Hobbies -->
-        <section class="container text-center pt-4 mt-4">
-            <h1 class="display-3 p-3">Passion & Hobbies</h1>
-            <div class="row justify-content-center mt-3">
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="card h-100" style="width: 16rem; margin: 0 auto;">
-                        <img src="B.png" class="card-img-top" alt="Reading">
-                        <div class="card-body bg-light">
-                            <h5 class="card-title">Reading</h5>
-                            <p class="card-text">The world is a book and those who do not travel read only one page.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <a href="https://drive.google.com/drive/folders/1U3naceFqQ9ixhUFtAB0_uUX1rO-eG-yP" target="_blank" class="text-decoration-none text-dark">
-                        <div class="card h-100" style="width: 16rem; margin: 0 auto;">
-                            <img src="D.png" class="card-img-top" alt="Graphic Design">
-                            <div class="card-body bg-light">
-                                <h5 class="card-title">Graphic Design</h5>
-                                <p class="card-text">There are three responses to a piece of design -Yes, No & WOW!<br>Wow is the one to aim for.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <a href="https://drive.google.com/drive/folders/1m3lMUFVrLjNlBdOsPlBorufXq2ek_Cs0" target="_blank" class="text-decoration-none text-dark">
-                        <div class="card h-100" style="width: 16rem; margin: 0 auto;">
-                            <img src="V.png" class="card-img-top" alt="Video Editing">
-                            <div class="card-body bg-light">
-                                <h5 class="card-title">Video Editing</h5>
-                                <p class="card-text">Video fasters the mindset that allows creativity to grow.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <div class="text-center my-5">
-            <a href="mailto:ahmedjedidi777@gmail.com" class="text-decoration-none">
-                <button id="competence" type="button" class="btn btn-primary m-4 px-5 py-3 fs-5 btn-custom shadow">Get in touch</button>
-            </a>
         </div>
-    </main>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4" style="height: 100px;">
-        <div class="container">
-            <p class="mb-1" style="color: white;">MADE WITH &hearts; By Ahmed Jedidi ISET Nabeul</p>
-            <p class="mb-0 small" style="color: white;">Copyright &copy; 2026</p>
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/Ahmed-Jedidi" target="_blank" class="social-link" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.facebook.com/ahmed.jdidi.1029" target="_blank" class="social-link" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="mailto:ahmedjedidi777@gmail.com" class="social-link" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://Ahmed-Jedidi.github.io" target="_blank" class="social-link" aria-label="Website">
+                <i class="fas fa-globe"></i>
+            </a>
         </div>
+        <p style="color: var(--gray); margin-bottom: 0.5rem;">© 2026 Ahmed JEDIDI - Software Engineering Student</p>
+        <p style="color: var(--gray); font-size: 0.9rem;">Designed & built with passion for technology and innovation</p>
     </footer>
 
-    <!-- Scroll To Top Button -->
-    <button onclick="topFunction()" id="scrollTopBtn" title="Go to top">Top</button>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- 
-      ========================================
-      SCRIPT.JS CONTENT
-      (Copy everything inside <script> to script.js)
-      ========================================
-    -->
     <script>
-        // Get the button
-        let mybutton = document.getElementById("scrollTopBtn");
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-            scrollFunction();
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.display = 'flex';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.padding = '2rem';
+                navLinks.style.borderTop = '1px solid rgba(255, 255, 255, 0.1)';
+            }
+        });
+
+        // Language progress bars animation
+        const observerOptions = {
+            threshold: 0.5
         };
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
+        const languageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.language-progress');
+                    progressBars.forEach(bar => {
+                        const progress = bar.getAttribute('data-progress');
+                        bar.style.width = progress + '%';
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const languagesSection = document.querySelector('#languages');
+        if (languagesSection) {
+            languageObserver.observe(languagesSection);
         }
 
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
+        // Intersection Observer for fade-in animations
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe sections and cards
+        document.querySelectorAll('section, .education-card, .experience-item, .community-card, .language-card, .soft-skill-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            fadeObserver.observe(el);
+        });
     </script>
 </body>
 </html>
